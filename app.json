@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Voice Auth App",
+    "slug": "auth-voice-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.voiceauth.app"
+    },
+    "android": {
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.voiceauth.app"
+    },
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Este app precisa acessar o microfone para autenticação por voz."
+        }
+      ]
+    ]
+  }
+}
