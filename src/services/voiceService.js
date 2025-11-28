@@ -71,10 +71,12 @@ export const enrollVoice = async (userId, phraseExpected, audioFile) => {
     const formData = new FormData();
     formData.append('user_id', userId);
     formData.append('phrase_expected', phraseExpected);
+    
+    // Garantir que o tipo MIME seja consistente
     formData.append('audio_file', {
       uri: audioFile.uri,
-      type: audioFile.type || 'audio/wav',
-      name: audioFile.name || 'recording.wav',
+      type: 'audio/m4a', // M4A/AAC é o formato que Android está gerando
+      name: audioFile.name || 'recording.m4a',
     });
 
     const response = await axios.post(
@@ -126,10 +128,12 @@ export const verifyVoice = async (userId, phraseExpected, audioFile) => {
     const formData = new FormData();
     formData.append('user_id', userId);
     formData.append('phrase_expected', phraseExpected);
+    
+    // Garantir que o tipo MIME seja consistente
     formData.append('audio_file', {
       uri: audioFile.uri,
-      type: audioFile.type || 'audio/wav',
-      name: audioFile.name || 'recording.wav',
+      type: 'audio/m4a', // M4A/AAC é o formato que Android está gerando
+      name: audioFile.name || 'recording.m4a',
     });
 
     const response = await axios.post(

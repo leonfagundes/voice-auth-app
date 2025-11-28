@@ -20,15 +20,19 @@ export const requestAudioPermissions = async () => {
 
 /**
  * Configurações de gravação de áudio
+ * Configuração para garantir compatibilidade entre iOS e Android
+ * Ambos usarão Linear PCM em formato WAV
  */
 export const getRecordingOptions = () => {
   return {
     android: {
       extension: '.wav',
-      outputFormat: Audio.AndroidOutputFormat.DEFAULT,
-      audioEncoder: Audio.AndroidAudioEncoder.DEFAULT,
-      sampleRate: 16000,
-      numberOfChannels: 1,
+      // Usar MPEG_4 permite configuração de encoder específico
+      outputFormat: Audio.AndroidOutputFormat.MPEG_4,
+      // AAC é mais compatível que DEFAULT para conversão posterior
+      audioEncoder: Audio.AndroidAudioEncoder.AAC,
+      sampleRate: 16000, // Mesma taxa do iOS
+      numberOfChannels: 1, // Mono, igual ao iOS
       bitRate: 128000,
     },
     ios: {

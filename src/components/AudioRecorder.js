@@ -88,8 +88,8 @@ const AudioRecorder = ({ onRecordingComplete, maxDuration = 10 }) => {
         onRecordingComplete({
           uri,
           duration,
-          type: 'audio/wav',
-          name: `recording_${Date.now()}.wav`,
+          type: 'audio/m4a', // Formato AAC/M4A para compatibilidade
+          name: `recording_${Date.now()}.m4a`,
         });
       }
 
